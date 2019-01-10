@@ -18,6 +18,8 @@ class CreateTasksTable extends Migration
 
             $table->text('body');
 
+            $table->boolean('completed')->default(false);
+
             $table->timestamps();
         });
     }

@@ -11,21 +11,22 @@
 |
 */
 
-Route::get('/tasks', function () {
 
-	$tasks = DB::table('tasks')->latest()->get();
 
-    return view ('tasks.index',compact('tasks'));
-});
+//Route::get('/tasks','TasksController@index');
 
-// Route::get('about',function (){
+//Route::get('/tasks/{task}','TasksController@show');
 
-// 	return view('about');
-//		});
+Route::get('/','PostsController@index');
 
-Route::get('/tasks/{task}',function ($id){
+Route::get('/posts/create','PostsController@create');
 
-	$task = DB::table('tasks')->find($id);
+Route::post('/posts','PostsController@store');
 
-	return view ('tasks.show', compact('task'));
-});
+Route::get('/posts/{post}','PostsController@show');
+
+Route::post('/posts/{post}/comments','CommentsController@store');
+
+
+
+
